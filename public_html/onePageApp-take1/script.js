@@ -10,13 +10,13 @@ scotchApp.config(function($routeProvider) {
 
 	// route for the home page
 		.when('/', {
-			templateUrl: 'pages/home.html',
+			templateUrl: 'public_html/onePageApp-take1/pages/home.html',
 			controller : 'mainController'
 		})
 
 		// route for the about page
 		.when('/about', {
-			templateUrl : 'pages/about.html',
+			templateUrl : 'public_html/onePageApp-take1/pages/about.html',
 			controller  : 'aboutController'
 		})
 
