@@ -22,7 +22,7 @@ scotchApp.config(function($routeProvider) {
 
 		// route for the contact page
 		.when('/contact', {
-			templateUrl : 'onePageApp-take1/pages/contract.html',
+			templateUrl : 'pages/contract.html',
 			controller  : 'contactController'
 		});
 });
