@@ -22,7 +22,7 @@ scotchApp.config(function($routeProvider) {
 
 		// route for the contact page
 		.when('/contact', {
-			templateUrl : 'onePageApp-take1/pages/contract.html',
+			templateUrl : 'pages/contract.html',
 			controller  : 'contactController'
 		});
 });
@@ -41,4 +41,3 @@ scotchApp.controller('aboutController', function($scope) {
 scotchApp.controller('contactController', function($scope) {
 	$scope.message = 'Contact us!  JK.  This is just a demo.';
 });
-
