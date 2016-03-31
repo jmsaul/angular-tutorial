@@ -1,6 +1,7 @@
 // script.js
 
 // create the module and name it scotchApp
+// Also include ngRoute for all our routing needs
 var scotchApp = angular.module('scotchApp', ['ngRoute']);
 
 // configure our routes
@@ -23,7 +24,7 @@ scotchApp.config(function($routeProvider) {
 		.when('/contact', {
 			templateUrl : 'pages/contract.html',
 			controller  : 'contactController'
-		})
+		});
 });
 
 // crate the controller and inject Angular's $scope
