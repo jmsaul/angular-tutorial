@@ -1,0 +1,63 @@
+<!--  Angular Form example -->
+<h2>Angular Form Example</h2>
+
+<div>
+	<!-- Form starts here -->
+	<form name="sampleForm" id="sampleForm" class="form-horizontal well" ng-controller="AngularFormController" ng-submit="submit(formData, sampleForm.$valid)" novlidate>
+		<h3>Important Form</h3>
+		<!--  Input Full Name -->
+		<div class="form-group" ng-class="{ 'has-error': sampleForm.fullName.$touched && sampleForm.fullName.$invalid }">
+			<label for="fullName">Full Name</label>
+			<div class="input-group">
+				<div class="input-group-addon">
+					<i class="fa fa-user"></i>
+					<!-- fa -> font awesome -->
+				</div>
+				<input type="text" id="fullName" name="fullName" class="form-control" ng-model="formData.fullName" ng-minlenth="4" ng-maxlength="32" ng-required="true" />
+			</div>
+			<!-- Error messages for Full Name input -->
+			<div class="alert alert-danger" role="alert" ng-messages="sampleForm.fullName.$error" ng-if="sampleForm.fullName.$touched"  ng-hide="sampleForm.fullName.$valid">
+				<p ng-message="minlength">Name is too short.</p>
+				<p ng-message="maxlength">Name is too long.</p>
+				<p ng-message="required">Please enter your name</p>
+			</div>
+		</div>
+
+		<!-- Input favorite kitties -->
+		<div class="form-group">
+			<label for="favoriteKitties">Favorite Kitties</label>
+			<div class="checkbox" ng-repeat="(cat,enabled) in cats">
+				<label class="checkbox">
+					<input type="checkbox" ng-change="checkKitty();" ng-model="cats(cat)">
+				</label>
+			</div>
+		</div>
+
+		<!-- Input bid -->
+		<div class="form-group" ng-class="{ 'has-error': sampleForm.bid.$touched && sampleForm.bid.invalid }">
+			<label for="bid">Bid</label>
+			<div class="input-group">
+				<div class="input-group-addon">
+					<i class="fa fa-usd"></i>
+					<!-- Insert image from fa=font awesome -->
+				</div>
+				<input type="number" name="bid" id="bid" min="1" step="0.01" max="16" class="form-control" ng-model="formData.bid" ng-required="true" />
+			</div>
+			<!-- Error messages for incorrect bids -->
+			<div class="alert alert-danger" role="alert" ng-messages="sampleForm.bid.$error" ng-if="sampleForm.bid.$touched"  ng-hide="sampleForm.bid.$valid">
+				<p ng-message="min">Bid is too small.</p>
+				<p ng-message="max">Bid is too large.</p>
+				<p ng-message="required">Please enter a bid<p>
+			</div>
+		</div>
+		<!--  Submit and Reset buttons -->
+		<button class="btn-lg btn-info" type="submit"><i class="fa fa-floppy-o"></i>&nbsp;Save</button>
+		<button class="btn btn-lg btn-warning" type="reset" ng-click="reset();"><i class="fa fa-ban"></i>&nbsp;Reset</button>
+		<hr />
+		<h5>Angular Form Data</h5>
+		<p ng-show="sampleForm.$valid"><em>Form data is valid!</em></p>
+		<p ng-hide="sampleForm.$valid"><em>Form data is invalid!</em></p>
+		<pre></pre>
+		<uib-alert ng-repeat="alert in alerts" type="" close="alerts.length = 0;"></uib-alert>
+	</form>
+</div>

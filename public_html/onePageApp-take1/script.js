@@ -42,7 +42,7 @@ scotchApp.controller('contactController', function($scope) {
 	$scope.message = 'Contact us!  JK.  This is just a demo.';
 });
 
-scotch.controller('AngularFormController", ["$scope",function($scope) {
+scotch.controller('AngularFormController', ["$scope",function($scope) {
 	/**
 	 * state variable to store the alerts gnerated from the submit event
 	 * @type {Array}
@@ -65,8 +65,8 @@ scotch.controller('AngularFormController", ["$scope",function($scope) {
 	 * method to rewrite the cats array when a checkbox is clicked
 	 */
 	$scope.checkKitty = function() {
-		$scope.formData.favoriteKitties [];
-		for(cat is $scope.cats) {
+		$scope.formData.favoriteKitties = [];
+		for(cat in $scope.cats) {
 				if($scope.cats[cat] === true) {
 					$scope.formData.favoriteKitties.push(cat);
 				}
@@ -102,4 +102,5 @@ scotch.controller('AngularFormController", ["$scope",function($scope) {
 		}
 		$scope.reset();
 	};
+	/**    ---------------------------------  **/
 }]);
